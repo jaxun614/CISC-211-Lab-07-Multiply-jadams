@@ -41,3 +41,5 @@
 *.s~
 *.swp
 *.DS_Store
+/Lab-07-multiply/firmware/Lab-07-multiply.X/build/
+/Lab-07-multiply/firmware/Lab-07-multiply.X/dist/

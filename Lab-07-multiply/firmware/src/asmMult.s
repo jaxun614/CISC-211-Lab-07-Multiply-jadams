@@ -14,7 +14,7 @@
 .type nameStr,%gnu_unique_object
     
 /*** STUDENTS: Change the next line to your name!  **/
-nameStr: .asciz "Inigo Montoya"  
+nameStr: .asciz "Jackson Adams"  
 
 .align   /* realign so that next mem allocations are on word boundaries */
  
@@ -88,6 +88,66 @@ asmMult:
      * Use it to test the C test code */
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
+    
+    /* DON'T TOUCH R0 or R1!!! they hold the cand and the plier */
+    
+    
+    
+    /* initalize values of each mem address to 0 */
+    mov r11, 0
+    
+    ldr r3, =rng_Error
+    str r11, [r3]
+    
+    ldr r3, =a_Sign
+    str r11, [r3]
+    
+    ldr r3, =b_Sign
+    str r11, [r3]
+    
+    ldr r3, =prod_Is_Neg
+    str r11, [r3]
+    
+    ldr r3, =a_Abs
+    str r11, [r3]
+    
+    ldr r3, =b_Abs
+    str r11, [r3]
+    
+    ldr r3, =init_Product
+    str r11, [r3]
+    
+    ldr r3, =final_Product
+    str r11, [r3]
+    
+    /* write r0 to the mem location of a_Multiplicand */
+    ldr r3, =a_Multiplicand
+    str r0, [r3]
+    
+    /* write r1 to the mem location of b_Multiplier */
+    ldr r3, =b_Multiplier
+    str r1, [r3]
+    
+    
+    
+    
+    
+    /* Check if either r0 or r1 exceeds the valid range for a signed 16bit number */
+    ldr r3, =0x7FFF
+    cmp r0, r3
+    bgt rng_Error_check
+    
+    rng_Error_check:
+    /* write 1 to the mem location of rng_Error to signify that the value was out of range */
+    ldr r3, =rng_Error
+    mov r4, 1
+    str r4, [r3]
+    /* write 0 to r0 because no multiplication happened */
+    mov r0, 0
+    
+    
+
+    
     
     
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
