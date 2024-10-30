@@ -71,17 +71,18 @@ static int32_t problemArray[] = {1,1,1,0,0,0};
 // the following array defines pairs of {balance, transaction} values
 // tc stands for test case
 static int32_t tc[][2] = {
-    {         -4,          3},  // -,+
+    /*{ 0xF0000000,        0x0},  // -,0*/
+    {         -4,          3},  // -,+ 
     {          0,          0},  // 0,0
     {          0,          5},  // 0,+
     {          0, 0xFFFFFFFC},  // 0,-
     { 0xFFFFFFFD,          0},  // -,0
     {          2,          0},  // +,0
     {     -32768,     -32768},  // -,-
-    { 0x00007FF3, 0xFFFF8001},  // +,-
+    { 0x00007FF3, 0xFFFF8001},  // +,- 
     { 0x00007FF1, 0x00007FF2},  // +,+
     {      32768,      32768},  // limits test
-    {     -32769,     -32769}   // limits test
+    {     -32769,     -32769}   // limits test */
 };
 
 static char * pass = "PASS";
